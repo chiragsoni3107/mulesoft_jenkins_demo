@@ -11,7 +11,7 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
 		file="common.yaml" doc:name="Common Config Props" />
 
     <http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="4f7bdf4f-dbd8-4153-b750-76b35320405c" basePath="${http.basePath}">
-		<http:listener-connection host="0.0.0.0" port="8081" readTimeout="${http.request.timeout}"/>
+		<http:listener-connection host="0.0.0.0" port="${http.port}" readTimeout="${http.request.timeout}"/>
 	</http:listener-config>
 	<flow name="mule-maven-demoFlow">
         <http:listener config-ref="HTTP_Listener_config" path="/hello" doc:name="HTTP"/>
