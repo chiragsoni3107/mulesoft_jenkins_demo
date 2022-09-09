@@ -6,9 +6,11 @@ pipeline {
         ANYPOINT_CREDENTIALS = credentials('anypoint.credentials')
       }
       steps {
-        sh 'mvn --version'
-        sh 'java -version'
-        sh 'mvn clean package deploy -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW} -DmuleDeploy' 
+        withMaven(maven: 'Default') {
+          sh "echo JAVA_HOME=$JAVA_HOME"
+          sh "mvn clean"
+          sh 'mvn clean package deploy -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW} -DmuleDeploy' 
+        }
       }
     }
   }
