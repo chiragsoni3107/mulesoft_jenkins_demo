@@ -1,0 +1,8 @@
+http:
+  protocol: "HTTP"
+  host: "0.0.0.0"
+  private:
+    port: "8091"
+  basePath: "/v1"
+  request:
+    timeout: "2000"
